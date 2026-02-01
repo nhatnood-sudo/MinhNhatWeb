@@ -5,6 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google của Nhật</title>
     <style>
+
+
+a {
+    text-decoration: none; /* Xóa gạch chân */
+    color: #3498db;        /* Đổi màu chữ */
+    font-weight: bold;     /* Làm chữ đậm lên */
+    transition: 0.3s;      /* Tạo hiệu ứng mượt mà khi đổi màu */
+}
+
+a:hover {
+    color: #e74c3c;           /* Đổi sang màu đỏ khi di chuột vào */
+    text-decoration: underline; /* Hiện lại gạch chân nếu muốn */
+    transform: scale(1.1);    /* Phóng to nhẹ liên kết */
+}
+.my-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f1c40f;
+    color: #2c3e50;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0 4px #d4ac0d; /* Tạo hiệu ứng nút 3D */
+}
+
+.my-button:active {
+    box-shadow: 0 2px #d4ac0d;
+    transform: translateY(2px); /* Hiệu ứng lún xuống khi nhấn */
+}
+
 //css của video
 .video-container {
     position: relative;
@@ -970,13 +999,17 @@ Tháng 1 năm 2026:
 { 
                 name: "Youtube", 
                 title: "Bắt đầu từ năm 2020", 
-                content: `Kênh chính : Nhật Võ<br>
+                content: `Kênh chính : Nhật Võ <img src="" style="width:28%">
+<br>
 <iframe width="560" height="315" 
-  src="https://www.youtube-nocookie.com/embed/jpshbrSpjRQ?origin=http://127.0.0.1" 
-  title="Nhật Võ - LEGO1" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-  allowfullscreen>
+  src="https://www.youtube.com/embed/jpshbrSpjRQ" 
+  frameborder="0" allowfullscreen>
+</iframe>
+<br>
+Kênh phụ: Kênh kỷ niệm của tôi:<br>
+<iframe width="560" height="315" 
+  src="https://www.youtube.com/embed/=dhybpr6HFuQ" 
+  frameborder="0" allowfullscreen>
 </iframe>
 
 
@@ -984,7 +1017,19 @@ Tháng 1 năm 2026:
 
             },
 
+{ 
+                name: "Game tôi và a.i làm", 
+                title: "Xin chào bạn, chơi gì đó đi !", 
+                content: `
+<a href="https://nhatnood-sudo.github.io/GameXeTangCuaNhatVaAi/" target="_blank" title="Bắn xe tăng">
+   Game bắn xe tăng của Nhật
+</a>
 
+
+
+
+`
+            },
 
 
 

@@ -6,7 +6,17 @@
     <title>Google của Nhật</title>
     <style>
 
+img {
+    transition: all 0.3s ease; /* Giúp hiệu ứng mượt mà hơn */
+    cursor: pointer;
+    border-radius: 8px;
+}
 
+img:hover {
+    transform: translateY(-10px) scale(1.02); /* Nhô lên phía trên */
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.5); /* Phát sáng nhẹ màu xanh */
+    filter: brightness(1.1); /* Sáng hơn một chút */
+}
 a {
     text-decoration: none; /* Xóa gạch chân */
     color: #3498db;        /* Đổi màu chữ */
@@ -1103,3 +1113,4 @@ Kênh phụ: Kênh kỷ niệm của tôi:<br>
     </script>
 </body>
 </html>
+

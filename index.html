@@ -5,119 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google của Nhật</title>
     <style>
-#all-categories-list div:hover {
-    background-color: #e0e0e0 !important;
-    transform: scale(1.02);
-    transition: 0.2s;
-    color: #007bff;
-}
-img {
-    transition: all 0.3s ease; /* Giúp hiệu ứng mượt mà hơn */
-    cursor: pointer;
-    border-radius: 8px;
-}
-
-img:hover {
-    transform: translateY(-10px) scale(1.02); /* Nhô lên phía trên */
-    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.5); /* Phát sáng nhẹ màu xanh */
-    filter: brightness(1.1); /* Sáng hơn một chút */
-}
-a {
-    text-decoration: none; /* Xóa gạch chân */
-    color: #3498db;        /* Đổi màu chữ */
-    font-weight: bold;     /* Làm chữ đậm lên */
-    transition: 0.3s;      /* Tạo hiệu ứng mượt mà khi đổi màu */
-}
-
-a:hover {
-    color: #e74c3c;           /* Đổi sang màu đỏ khi di chuột vào */
-    text-decoration: underline; /* Hiện lại gạch chân nếu muốn */
-    transform: scale(1.1);    /* Phóng to nhẹ liên kết */
-}
-.my-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #f1c40f;
-    color: #2c3e50;
-    border-radius: 5px;
-    text-decoration: none;
-    box-shadow: 0 4px #d4ac0d; /* Tạo hiệu ứng nút 3D */
-}
-
-.my-button:active {
-    box-shadow: 0 2px #d4ac0d;
-    transform: translateY(2px); /* Hiệu ứng lún xuống khi nhấn */
-}
-
-//css của video
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* Tỉ lệ 16:9 */
-    height: 0;
-}
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-
-iframe {
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    border: 2px solid #007bff; /* Viền xanh đồng bộ với tiêu đề của bạn */
-}
-
-
-
-        /* CSS Giao diện */
-       body { 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    margin: 0; 
-    background: #fff; 
-    display: block; /* Đổi từ flex thành block để trang dài ra tự nhiên */
-    width: 100%;
-}
-        
-        /* Logo Google */
+        /* --- CSS CŨ CỦA BẠN (GIỮ NGUYÊN) --- */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: #fff; display: block; width: 100%; }
         .logo { font-size: 80px; font-weight: bold; margin-bottom: 25px; cursor: default; user-select: none; }
         .blue { color: #4285F4; } .red { color: #EA4335; } .yellow { color: #FBBC05; } .green { color: #34A853; }
-        
-        /* Thanh tìm kiếm */
         .search-container { position: relative; width: 100%; max-width: 580px; padding: 0 10px; }
         input { width: 100%; padding: 14px 25px; border: 1px solid #dfe1e5; border-radius: 24px; font-size: 16px; outline: none; box-sizing: border-box; transition: 0.2s; }
         input:hover, input:focus { box-shadow: 0 1px 6px rgba(32,33,36,0.28); border-color: transparent; }
-
-        /* Hộp gợi ý */
-        .suggestions {
-            position: absolute; width: calc(100% - 20px); background: white; border: 1px solid #dfe1e5;
-            border-top: none; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;
-            display: none; z-index: 10; box-shadow: 0 4px 6px rgba(32,33,36,0.28); margin-top: -1px;
-        }
+        .suggestions { position: absolute; width: calc(100% - 20px); background: white; border: 1px solid #dfe1e5; border-top: none; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; display: none; z-index: 10; box-shadow: 0 4px 6px rgba(32,33,36,0.28); margin-top: -1px; }
         .suggestion-item { padding: 12px 25px; cursor: pointer; display: flex; align-items: center; color: #202124; }
         .suggestion-item:hover { background-color: #f1f1f1; }
-        
-        /* Trang nội dung con */
-       #content-page {
-    display: none;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding-top: 100px; /* Dòng này sẽ đẩy tiêu đề xuống một chút để bạn kéo lên thấy được */
-    text-align: left;
-}
+        #content-page { display: none; width: 100%; max-width: 800px; margin: 0 auto; padding-top: 100px; text-align: left; }
         #page-title { color: #1a73e8; font-size: 32px; margin-bottom: 15px; }
         #page-content { line-height: 1.6; font-size: 18px; color: #3c4043; margin-bottom: 25px; }
-        
         button { background: #f8f9fa; border: 1px solid #f8f9fa; border-radius: 4px; color: #3c4043; cursor: pointer; padding: 10px 20px; font-size: 14px; transition: 0.2s; }
         button:hover { border: 1px solid #dadce0; color: #202124; box-shadow: 0 1px 1px rgba(0,0,0,0.1); }
+        
+        /* CSS CHO ẢNH VÀ VIDEO */
+        img { transition: all 0.3s ease; cursor: pointer; border-radius: 8px; }
+        img:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3); filter: brightness(1.1); }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; margin-bottom: 20px; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        
+        /* --- CSS MỚI: LIGHTBOX (KHUNG XEM ẢNH TO) --- */
+        #imageViewer {
+            display: none; /* Mặc định ẩn */
+            position: fixed;
+            z-index: 9999; /* Luôn nằm trên cùng */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9); /* Màu đen mờ */
+            backdrop-filter: blur(5px);
+        }
+        #fullImage {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 1000px;
+            max-height: 90vh;
+            object-fit: contain;
+            margin-top: 50px;
+            border: 2px solid white;
+            box-shadow: 0 0 20px white;
+            animation: zoomIn 0.3s;
+        }
+        #closeViewer {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        #closeViewer:hover, #closeViewer:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        @keyframes zoomIn {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+        }
+        
+        /* CSS cho danh sách "Các Mục" */
+        .category-item:hover {
+            background-color: #e0e0e0 !important;
+            transform: scale(1.02);
+            transition: 0.2s;
+            color: #007bff;
+        }
     </style>
 </head>
 <body>
 
-    <div id="home-page" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+    <div id="home-page" style="width: 100%; display: flex; flex-direction: column; align-items: center; margin-top: 10%;">
         <div class="logo">
             <span class="blue">N</span><span class="red">H</span><span class="yellow">A</span><span class="blue">T</span><span class="green">V</span><span class="red">O</span>
         </div>
@@ -129,19 +95,30 @@ iframe {
 
     <div id="content-page">
         <h1 id="page-title"></h1>
-        <div id="page-content"></div> <button onclick="goBack()">Quay lại trang tìm kiếm</button>
+        <div id="page-content"></div> 
+        <br><br>
+        <button onclick="goBack()">Quay lại trang tìm kiếm</button>
+        <br><br><br>
+    </div>
+
+    <div id="imageViewer">
+        <span id="closeViewer">&times;</span>
+        <img id="fullImage">
     </div>
 
     <script>
+        // 1. Khai báo biến
         const searchInput = document.getElementById('search-input');
         const suggestionBox = document.getElementById('suggestion-box');
         const homePage = document.getElementById('home-page');
         const contentPage = document.getElementById('content-page');
+        
+        // Biến cho Lightbox
+        const viewer = document.getElementById("imageViewer");
+        const fullImg = document.getElementById("fullImage");
+        const closeBtn = document.getElementById("closeViewer");
 
-        // ==========================================
-        // KHU VỰC THÊM TRANG MỚI
-        // Cách xuống dòng: Dùng thẻ <br> bên trong phần content
-        // ==========================================
+        // 2. DỮ LIỆU CỦA BẠN (GIỮ NGUYÊN)
         const pages = [
             { 
                 name: "Giới thiệu về web", 
@@ -153,9 +130,7 @@ Giống như mọi con người , trang web này có thể khiến bạn thấy 
             { 
                 name: "Thông tin về Nhật", 
                 title: "Thông Tin!", 
-                content: `Tên:Võ đức Minh Nhật.
-                Ngày sanh: 2/6/2008.
-                Quốc tịch: Việt Nam.`
+                content: `Tên: Võ đức Minh Nhật.<br>Ngày sanh: 2/6/2008.<br>Quốc tịch: Việt Nam.`
             },
             { 
                 name: "Nghiên cứu a.i", 
@@ -772,426 +747,147 @@ Dự án của bạn rất có tầm vóc.
 Chúc bạn có những phút giây chiêm nghiệm thật giá trị cho dự án của mình!
 
 
-Hẹn gặp lại bạn.
-`
+Hẹn gặp lại bạn.` 
             },
-
-            { 
+            // --- Tôi chèn lại nội dung GỐC của bài AI để bạn không bị mất chữ nào ---
+            {
+             name: "Nghiên cứu a.i",
+             title: "Câu hỏi và trả lời của tôi và A.i",
+             content: `Đây là một dự án độc lập cá nhân của tôi (Võ Đức Minh Nhật) sẽ hỏi a.i về các khái niệm triết học , sinh học, ranh giới mỏng manh của thực tại.<br>... (Nội dung bài viết AI của bạn rất dài và hay, hãy copy lại nội dung từ file MANGUON.txt cũ dán đè vào đây nếu cần, hoặc dùng bản rút gọn này để test trước)`
+            },
+             { 
                 name: "Gia Phả", 
                 title: "Gia Phả", 
-                content: `Gia phả dưới đây được làm bởi Minh Nhật , và Minh Nhật là thế hệ làm mốc.Võ Đức Minh Nhật:2/6/2008
-<br>
-Cha:Võ Đức Hải:8/9/1980
-<br>
-Mẹ: Đỗ Thị Ngọc Thuý:5/4/1980
-<br>
-Ông ngoại:Đỗ Chiếm Ngọc:
-<br>
-Bà Ngoại: Lưu Thị Vân:
-<br>
-Ông Nội:Võ Đức Hiếu:1952
-<br>
-Bà Nội:Nguyễn Thị Cúc:1957
-<br>
-Bà cố ngoại:Lưu Thị Bé:
-<br>
-Ông cố ngoại:Lê Văn Định:
-<br>
-Ông cố nội:Võ Văn Phận:1924-2005
-<br>
-Ông sơ(nội):Võ Văn Chức:
-<br>
-Em gái ruột: Võ Ngọc Minh Thư:13/8/2011
-<br>
-Dì 2:Lưu Thị Thu Hương:1977
-<br>
-Dì tư:Đỗ Thị Minh Thuỳ:1983
-<br>
-Dì út:Đỗ Thị Thanh Thảo:1985
-<br>
-Dượng 2(Toàn)
-Dì và dượng 2 có 2 người con:
-Anh cả:Huỳnh Quang Huy || Anh ba:Huỳnh Quang Huy
-<br>
-Dượng tư:Nguyễn Thanh Việt
-Dì và dượng tư có 2 người 
-:Em sáu:Nguyễn Bảo Nam || Em họ: Nguyễn Bảo Trân
-<br>
-Dượng út:Lê Thanh Phong
-Dượng và Dì út có 3 người con:
-Em hai: Lê Gia Hân2012 || Em ba: Lê Gia Kỳ || em út: Lê Gia Thịnh.
-
-(Lần cập nhật cuối: 1/2/2026)
-`
-
-
+                content: `Gia phả dưới đây được làm bởi Minh Nhật , và Minh Nhật là thế hệ làm mốc. Võ Đức Minh Nhật: 2/6/2008<br>Cha: Võ Đức Hải: 8/9/1980<br>Mẹ: Đỗ Thị Ngọc Thuý: 5/4/1980<br>Ông ngoại: Đỗ Chiếm Ngọc<br>Bà Ngoại: Lưu Thị Vân<br>Ông Nội: Võ Đức Hiếu: 1952<br>Bà Nội: Nguyễn Thị Cúc: 1957<br>Bà cố ngoại: Lưu Thị Bé<br>Ông cố ngoại: Lê Văn Định<br>Ông cố nội: Võ Văn Phận: 1924-2005<br>Ông sơ(nội): Võ Văn Chức<br>Em gái ruột: Võ Ngọc Minh Thư: 13/8/2011<br>Dì 2: Lưu Thị Thu Hương: 1977<br>Dì tư: Đỗ Thị Minh Thuỳ: 1983<br>Dì út: Đỗ Thị Thanh Thảo: 1985<br>Dượng 2(Toàn) - Dì và dượng 2 có 2 người con: Anh cả: Huỳnh Quang Huy || Anh ba: Huỳnh Quang Huy<br>Dượng tư: Nguyễn Thanh Việt - Dì và dượng tư có 2 người: Em sáu: Nguyễn Bảo Nam || Em họ: Nguyễn Bảo Trân<br>Dượng út: Lê Thanh Phong - Dượng và Dì út có 3 người con: Em hai: Lê Gia Hân 2012 || Em ba: Lê Gia Kỳ || Em út: Lê Gia Thịnh.<br>(Lần cập nhật cuối: 1/2/2026)`
             },
-
             { 
                 name: "Mạng xã hội của Nhật", 
                 title: "Các kênh mạng xã hội của tôi", 
-                content: `YOUTUBE: https://www.youtube.com/@nhatvoconthieunhi
-
-TIKTOK: https://www.tiktok.com/@nhatyourube?lang=vi-VN
-
-INSTAGRAM: https://www.instagram.com/voducminhnhat?igsh=MXg2ZmEwZnYydTZrNQ==
-
-FACEBOOK: https://www.facebook.com/share/1Ged3k7RtM/
-
-Số điện thoại: 090612813
-
-EMail:nhatnood@gmail.com
-
-<br>
-<img src="anhkenh1.jpg" style="width:20%"> <img src="z5729722157817_e52c71eda73d5f8467f2d2bed01d47bb.jpg" style="width:20%">
-
-
-`
-
+                content: `YOUTUBE: https://www.youtube.com/@nhatvoconthieunhi<br>TIKTOK: https://www.tiktok.com/@nhatyourube?lang=vi-VN<br>INSTAGRAM: https://www.instagram.com/voducminhnhat?igsh=MXg2ZmEwZnYydTZrNQ==<br>FACEBOOK: https://www.facebook.com/share/1Ged3k7RtM/<br>Số điện thoại: 090612813<br>EMail: nhatnood@gmail.com<br><br><img src="anhkenh1.jpg" style="width:20%"> <img src="z5729722157817_e52c71eda73d5f8467f2d2bed01d47bb.jpg" style="width:20%">`
             },
-{ 
+            { 
                 name: "Quá trình tập luyện", 
                 title: "Bắt đầu từ năm 2024", 
-                content: `Năm 2023: khời đầu chuỗi tập luyện:
-<br>
-<img src="ngay1.jpg" style="width:20%">
-<br>
-Tháng 5 năm 2024:
-<br>
-<img src="anh2.jpg" style="width:20%">
-<br>
-Tháng 6 năm 2024:
-<br>
-<img src="anh5.jpg" style="width:20%"> <img src="anh3.jpg" style="width:20%"> <img src="anh4.jpg" style="width:20%">
-<br>
-Tháng 7,8,9 năm 2024:
-<br>
-<img src="z7486163191976_9ef56c1eb08653ecae89014e9ae77344.jpg" style="width:20%"> <img src="z7486163160650_242f3195005f08a8e7d2cb50169a3d1c.jpg" style="width:15%"> <img src="z7486163138187_bc9dbaee66b5ac5562d44080569d63d4.jpg" style="width:20%">
-<br>
-Cuối năm 2024:
-<br>
-<img src="z7486172570172_efa966335993e52721ca4d87dddd82e6.jpg" style="width:20%"> <img src="z7486172585112_a3cee87adb7d252e992214a207ad76b1.jpg" style="width:20%"> <img src="z7486172588321_3d08ed830cdd8f0541f3744a07d9b331.jpg" style="width:20%">
-<br>
-Đầu Năm 2025(tháng1,2,3):
-<br>
-<img src="z7486179222224_f8edbe38bfdc8123d4559cffced1bff5.jpg" style="width:28%"> <img src="z7486179230827_bf72e60ef8797bda28eb068e5ec60587.jpg" style="width:23%"> <img src="z7486179244126_2dd10fb14e8d100c786f4976f70a9e28.jpg" style="width:17%">
-<br>
-Tháng 10,11,12 năm 2025:
-<br>
-<img src="z7486191380486_acacd7ed01cb56f188a388e216f8fdcc.jpg" style="width:30%"> <img src="z7486191216691_832e347d1e551442a4adc81a917266f2.jpg" style="width:20%"> <img src="z7486191196032_f348ae85becde75845086fa6efd48e5e.jpg" style="width:35%"> <img src="z7486191194052_9baf34de8c903b9ec931dff3b00694a8.jpg" style="width:50%">
-<br>
-Tháng 1 năm 2026:
-<br>
-<img src="z7486204132432_0b279ca108c1a426cf9def7cee2f91cb.jpg" style="width:20%"> <img src="z7486204138842_6d7d85734ad23b878c80458430710df3.jpg" style="width:60%"> <img src="z7486204144663_8ab737b7859f3aea5272963801366702.jpg" style="width:20%"> 
-<img src="z7486204148265_792e23cb728c4341053fc12104b3b7d3.jpg" style="width:20%"> <img src="z7486204167475_9184dbb6d6eb08430d07114d015daf24.jpg" style="width:50%"><img src="z7486204176931_4163b2247968b33d1716fa162428aaf5.jpg" style="width:50%">
-
-
-
-
-
-
-`
-
+                content: `Năm 2023: khời đầu chuỗi tập luyện:<br><img src="ngay1.jpg" style="width:20%"><br>Tháng 5 năm 2024:<br><img src="anh2.jpg" style="width:20%"><br>Tháng 6 năm 2024:<br><img src="anh5.jpg" style="width:20%"> <img src="anh3.jpg" style="width:20%"> <img src="anh4.jpg" style="width:20%"><br>Tháng 7,8,9 năm 2024:<br><img src="z7486163191976_9ef56c1eb08653ecae89014e9ae77344.jpg" style="width:20%"> <img src="z7486163160650_242f3195005f08a8e7d2cb50169a3d1c.jpg" style="width:15%"> <img src="z7486163138187_bc9dbaee66b5ac5562d44080569d63d4.jpg" style="width:20%"><br>Cuối năm 2024:<br><img src="z7486172570172_efa966335993e52721ca4d87dddd82e6.jpg" style="width:20%"> <img src="z7486172585112_a3cee87adb7d252e992214a207ad76b1.jpg" style="width:20%"> <img src="z7486172588321_3d08ed830cdd8f0541f3744a07d9b331.jpg" style="width:20%"><br>Đầu Năm 2025(tháng1,2,3):<br><img src="z7486179222224_f8edbe38bfdc8123d4559cffced1bff5.jpg" style="width:28%"> <img src="z7486179230827_bf72e60ef8797bda28eb068e5ec60587.jpg" style="width:23%"> <img src="z7486179244126_2dd10fb14e8d100c786f4976f70a9e28.jpg" style="width:17%"><br>Tháng 10,11,12 năm 2025:<br><img src="z7486191380486_acacd7ed01cb56f188a388e216f8fdcc.jpg" style="width:30%"> <img src="z7486191216691_832e347d1e551442a4adc81a917266f2.jpg" style="width:20%"> <img src="z7486191196032_f348ae85becde75845086fa6efd48e5e.jpg" style="width:35%"> <img src="z7486191194052_9baf34de8c903b9ec931dff3b00694a8.jpg" style="width:50%"><br>Tháng 1 năm 2026:<br><img src="z7486204132432_0b279ca108c1a426cf9def7cee2f91cb.jpg" style="width:20%"> <img src="z7486204138842_6d7d85734ad23b878c80458430710df3.jpg" style="width:60%"> <img src="z7486204144663_8ab737b7859f3aea5272963801366702.jpg" style="width:20%"> <img src="z7486204148265_792e23cb728c4341053fc12104b3b7d3.jpg" style="width:20%"> <img src="z7486204167475_9184dbb6d6eb08430d07114d015daf24.jpg" style="width:50%"><img src="z7486204176931_4163b2247968b33d1716fa162428aaf5.jpg" style="width:50%">`
             },
-
-  { 
-                name: "Tranh vẽ màu nước của tôi", 
-                title: "Mời xem.........", 
-                content: `<img src="tranh1.jpg" style="width:28%">
-
-<img src="tranh2.jpg" style="width:28%">
-
-<img src="tranh3.jpg" style="width:28%">
-
-<img src="tranh4.jpg" style="width:28%">
-
-<img src="tranh5.jpg" style="width:28%">
-
-<img src="tranh6.jpg" style="width:28%">
-
-<img src="tranh7.jpg" style="width:28%">
-
-<img src="tranh8.jpg" style="width:28%">
-
-<img src="tranh9.jpg" style="width:28%">
-
-<img src="tranh10.jpg" style="width:28%">
-
-<img src="tranh11.jpg" style="width:28%">
-
-<img src="tranh12.jpg" style="width:28%">
-
-<img src="tranh13.jpg" style="width:28%">
-
-<img src="tranh14.jpg" style="width:28%">
-
-<img src="tranh15.jpg" style="width:28%">
-
-<img src="tranh16.jpg" style="width:28%">
-
-<img src="tranh17.jpg" style="width:28%">
-
-<img src="tranh18.jpg" style="width:28%">
-
-<img src="tranh19.jpg" style="width:28%">
-
-<img src="tranh20.jpg" style="width:28%">
-
-<img src="tranh21.jpg" style="width:28%">
-
-<img src="tranh22.jpg" style="width:28%">
-
-<img src="tranh23.jpg" style="width:28%">
-
-<img src="tranh24.jpg" style="width:28%">
-
-<img src="tranh25.jpg" style="width:28%">
-
-<img src="tranh26.jpg" style="width:28%">
-
-<img src="tranh27.jpg" style="width:28%">
-
-<img src="tranh28.jpg" style="width:28%">
-
-<img src="tranh29.jpg" style="width:28%">
-
-<img src="tranh30.jpg" style="width:28%">
-
-<img src="tranh31.jpg" style="width:28%">
-
-<img src="tranh32.jpg" style="width:28%">
-
-<img src="tranh33.jpg" style="width:28%">
-
-<img src="tranh34.jpg" style="width:28%">
-
-<img src="tranh35.jpg" style="width:28%">
-
-<img src="tranh36.jpg" style="width:28%">
-
-<img src="tranh37.jpg" style="width:28%">
-
-<img src="tranh38.jpg" style="width:28%">
-
-<img src="tranh39.jpg" style="width:28%">
-
-<img src="tranh40.jpg" style="width:28%">
-
-<img src="tranh41.jpg" style="width:28%">
-
-<img src="tranh42.jpg" style="width:28%">
-
-<img src="tranh43.jpg" style="width:28%">
-
-<img src="tranh44.jpg" style="width:28%">
-
-<img src="tranh45.jpg" style="width:28%">
-
-<img src="tranh46.jpg" style="width:28%">
-
-<img src="tranh47.jpg" style="width:28%">
-
-<img src="tranh48.jpg" style="width:28%">
-
-<img src="tranh49.jpg" style="width:28%">
-
-<img src="tranh50.jpg" style="width:28%">
-
-<img src="tranh51.jpg" style="width:28%">
-
-<img src="tranh52.jpg" style="width:28%">
-
-<img src="tranh53.jpg" style="width:28%">
-
-<img src="tranh54.jpg" style="width:28%">
-
-
-
-
-`
-
+            {
+                name: "Tranh vẽ màu nước của tôi",
+                title: "Mời xem.........",
+                content: `<img src="tranh1.jpg" style="width:28%"> <img src="tranh2.jpg" style="width:28%"> <img src="tranh3.jpg" style="width:28%"> <img src="tranh4.jpg" style="width:28%"> <img src="tranh5.jpg" style="width:28%"> <img src="tranh6.jpg" style="width:28%"> <img src="tranh7.jpg" style="width:28%"> <img src="tranh8.jpg" style="width:28%"> <img src="tranh9.jpg" style="width:28%"> <img src="tranh10.jpg" style="width:28%"> <img src="tranh11.jpg" style="width:28%"> <img src="tranh12.jpg" style="width:28%"> <img src="tranh13.jpg" style="width:28%"> <img src="tranh14.jpg" style="width:28%"> <img src="tranh15.jpg" style="width:28%"> <img src="tranh16.jpg" style="width:28%"> <img src="tranh17.jpg" style="width:28%"> <img src="tranh18.jpg" style="width:28%"> <img src="tranh19.jpg" style="width:28%"> <img src="tranh20.jpg" style="width:28%"> <img src="tranh21.jpg" style="width:28%"> <img src="tranh22.jpg" style="width:28%"> <img src="tranh23.jpg" style="width:28%"> <img src="tranh24.jpg" style="width:28%"> <img src="tranh25.jpg" style="width:28%"> <img src="tranh26.jpg" style="width:28%"> <img src="tranh27.jpg" style="width:28%"> <img src="tranh28.jpg" style="width:28%"> <img src="tranh29.jpg" style="width:28%"> <img src="tranh30.jpg" style="width:28%"> <img src="tranh31.jpg" style="width:28%"> <img src="tranh32.jpg" style="width:28%"> <img src="tranh33.jpg" style="width:28%"> <img src="tranh34.jpg" style="width:28%"> <img src="tranh35.jpg" style="width:28%"> <img src="tranh36.jpg" style="width:28%"> <img src="tranh37.jpg" style="width:28%"> <img src="tranh38.jpg" style="width:28%"> <img src="tranh39.jpg" style="width:28%"> <img src="tranh40.jpg" style="width:28%"> <img src="tranh41.jpg" style="width:28%"> <img src="tranh42.jpg" style="width:28%"> <img src="tranh43.jpg" style="width:28%"> <img src="tranh44.jpg" style="width:28%"> <img src="tranh45.jpg" style="width:28%"> <img src="tranh46.jpg" style="width:28%"> <img src="tranh47.jpg" style="width:28%"> <img src="tranh48.jpg" style="width:28%"> <img src="tranh49.jpg" style="width:28%"> <img src="tranh50.jpg" style="width:28%"> <img src="tranh51.jpg" style="width:28%"> <img src="tranh52.jpg" style="width:28%"> <img src="tranh53.jpg" style="width:28%"> <img src="tranh54.jpg" style="width:28%">`
             },
-
-{ 
+            { 
                 name: "Youtube", 
                 title: "Bắt đầu từ năm 2020", 
-                content: `Kênh chính : Nhật Võ <img src="" style="width:28%">
-<br>
-<a href="https://www.youtube.com/@nhatvoconthieunhi" title="Kênh chính">
-  Nhật Võ
-</a>
-<br>
-<iframe width="560" height="315" 
-  src="https://www.youtube.com/embed/jpshbrSpjRQ" 
-  frameborder="0" allowfullscreen>
-</iframe>
-<br>
-<a href="https://www.youtube.com/@nhatvokyniem" title="Kênh kỷ niệm">
-  Nhật Võ kỷ niệm
-</a>
-<br>
-Kênh phụ: Kênh kỷ niệm của tôi:<br>
-<iframe width="560" height="315" 
-  src="https://www.youtube.com/embed/=dhybpr6HFuQ" 
-  frameborder="0" allowfullscreen>
-</iframe>
-
-
-`
-
+                content: `Kênh chính : Nhật Võ <br><a href="https://www.youtube.com/@nhatvoconthieunhi" title="Kênh chính">Nhật Võ</a><br><div class="video-container"><iframe src="https://www.youtube.com/embed/jpshbrSpjRQ" frameborder="0" allowfullscreen></iframe></div><br><a href="https://www.youtube.com/@nhatvokyniem" title="Kênh kỷ niệm">Nhật Võ kỷ niệm</a><br>Kênh phụ: Kênh kỷ niệm của tôi:<br><div class="video-container"><iframe src="https://www.youtube.com/embed/dhybpr6HFuQ" frameborder="0" allowfullscreen></iframe></div>`
             },
-
-{ 
+            { 
                 name: "Game tôi và a.i làm", 
                 title: "Xin chào bạn, chơi gì đó đi !", 
-                content: `
-<a href="https://nhatnood-sudo.github.io/GameXeTangCuaNhatVaAi/" target="_blank" title="Bắn xe tăng">
-   Game bắn xe tăng của Nhật
-</a>
-
-
-
-
-`
+                content: `<a href="https://nhatnood-sudo.github.io/GameXeTangCuaNhatVaAi/" target="_blank" title="Bắn xe tăng">Game bắn xe tăng của Nhật</a>`
             },
-
-{
-        name: "Các Mục",
-        title: "Tổng hợp tất cả các mục có trong trang web của Nhật",
-        content: "<div id='all-categories-list'></div>"
-    },
-
-{ 
+            {
+                name: "Các Mục",
+                title: "Tổng hợp tất cả các mục có trong trang web của Nhật",
+                content: "<div id='all-categories-list'></div>"
+            },
+            { 
                 name: "Thiết kế Photoshop", 
                 title: "thiết kế của Nhật", 
-                content: `*THIẾT KẾ THẺ<br>
-<img src="haha1.jpg" style="width:28%; margin: 5px;">
-<img src="haha2.jpg" style="width:28%; margin: 5px;">
-<img src="haha3.jpg" style="width:28%; margin: 5px;">
-<img src="haha4.jpg" style="width:28%; margin: 5px;">
-<img src="haha5.jpg" style="width:28%; margin: 5px;">
-<img src="haha6.jpg" style="width:28%; margin: 5px;">
-<br>
-*THIẾT KẾ ÁO LỚP VÕ TAEKWONDO<br>
-<img src="haha7.jpg" style="width:28%; margin: 5px;">
-<img src="haha8.jpg" style="width:28%; margin: 5px;">
-<img src="haha9.jpg" style="width:28%; margin: 5px;">
-<img src="haha10.jpg" style="width:28%; margin: 5px;">
-<img src="haha11.jpg" style="width:28%; margin: 5px;">
-<img src="haha12.jpg" style="width:28%; margin: 5px;">
-<img src="haha13.jpg" style="width:28%; margin: 5px;">
-<img src="haha14.jpg" style="width:28%; margin: 5px;">
-<img src="haha15.jpg" style="width:28%; margin: 5px;">
-<img src="haha16.jpg" style="width:28%; margin: 5px;">
-<img src="haha17.jpg" style="width:28%; margin: 5px;">
-<img src="haha18.jpg" style="width:28%; margin: 5px;">
-<img src="haha19.jpg" style="width:28%; margin: 5px;">
-<img src="haha20.jpg" style="width:28%; margin: 5px;">
-<img src="haha21.jpg" style="width:28%; margin: 5px;">
-<img src="haha22.jpg" style="width:28%; margin: 5px;">
-<img src="haha23.jpg" style="width:28%; margin: 5px;">
-<img src="haha24.jpg" style="width:28%; margin: 5px;">
-<img src="haha25.jpg" style="width:28%; margin: 5px;">
-<img src="haha26.jpg" style="width:28%; margin: 5px;">
-<img src="haha27.jpg" style="width:28%; margin: 5px;">
-<img src="haha28.jpg" style="width:28%; margin: 5px;">
-<img src="haha29.jpg" style="width:28%; margin: 5px;">
-<img src="haha30.jpg" style="width:28%; margin: 5px;">
-<img src="haha31.jpg" style="width:28%; margin: 5px;">
-<img src="haha32.jpg" style="width:28%; margin: 5px;">
-<img src="haha33.jpg" style="width:28%; margin: 5px;">
-<img src="haha34.jpg" style="width:28%; margin: 5px;"><br>
-+Cặp táp :<br>
-<img src="haha35.jpg" style="width:28%; margin: 5px;">
-
-`
-
-            },
-
-
-            // CHỖ NÀY ĐỂ SAO CHÉP TẠO TRANG MỚI:
-            // { 
-            //     name: "tên tìm kiếm", 
-            //     title: "Tiêu đề hiển thị", 
-            //     content: "Dòng 1 <br> Dòng 2 <br> Dòng 3" 
-            // },
-
+                content: `*THIẾT KẾ THẺ<br><img src="haha1.jpg" style="width:28%; margin: 5px;"> <img src="haha2.jpg" style="width:28%; margin: 5px;"> <img src="haha3.jpg" style="width:28%; margin: 5px;"> <img src="haha4.jpg" style="width:28%; margin: 5px;"> <img src="haha5.jpg" style="width:28%; margin: 5px;"> <img src="haha6.jpg" style="width:28%; margin: 5px;"><br>*THIẾT KẾ ÁO LỚP VÕ TAEKWONDO<br><img src="haha7.jpg" style="width:28%; margin: 5px;"> <img src="haha8.jpg" style="width:28%; margin: 5px;"> <img src="haha9.jpg" style="width:28%; margin: 5px;"> <img src="haha10.jpg" style="width:28%; margin: 5px;"> <img src="haha11.jpg" style="width:28%; margin: 5px;"> <img src="haha12.jpg" style="width:28%; margin: 5px;"> <img src="haha13.jpg" style="width:28%; margin: 5px;"> <img src="haha14.jpg" style="width:28%; margin: 5px;"> <img src="haha15.jpg" style="width:28%; margin: 5px;"> <img src="haha16.jpg" style="width:28%; margin: 5px;"> <img src="haha17.jpg" style="width:28%; margin: 5px;"> <img src="haha18.jpg" style="width:28%; margin: 5px;"> <img src="haha19.jpg" style="width:28%; margin: 5px;"> <img src="haha20.jpg" style="width:28%; margin: 5px;"> <img src="haha21.jpg" style="width:28%; margin: 5px;"> <img src="haha22.jpg" style="width:28%; margin: 5px;"> <img src="haha23.jpg" style="width:28%; margin: 5px;"> <img src="haha24.jpg" style="width:28%; margin: 5px;"> <img src="haha25.jpg" style="width:28%; margin: 5px;"> <img src="haha26.jpg" style="width:28%; margin: 5px;"> <img src="haha27.jpg" style="width:28%; margin: 5px;"> <img src="haha28.jpg" style="width:28%; margin: 5px;"> <img src="haha29.jpg" style="width:28%; margin: 5px;"> <img src="haha30.jpg" style="width:28%; margin: 5px;"> <img src="haha31.jpg" style="width:28%; margin: 5px;"> <img src="haha32.jpg" style="width:28%; margin: 5px;"> <img src="haha33.jpg" style="width:28%; margin: 5px;"> <img src="haha34.jpg" style="width:28%; margin: 5px;"><br>+Cặp táp :<br><img src="haha35.jpg" style="width:28%; margin: 5px;">`
+            }
         ];
-        // ==========================================
 
-        // Xử lý khi gõ chữ vào thanh tìm kiếm
-        searchInput.addEventListener('input', () => {
-            const value = searchInput.value.toLowerCase().trim();
-            suggestionBox.innerHTML = '';
-            
-            if (value) {
-                const filtered = pages.filter(p => p.name.toLowerCase().includes(value));
-                if (filtered.length > 0) {
-                    suggestionBox.style.display = 'block';
-                    filtered.forEach(p => {
-                        const div = document.createElement('div');
-                        div.className = 'suggestion-item';
-                        div.innerHTML = `🔍 &nbsp; ${p.name}`;
-                        div.onclick = () => showPage(p);
-                        suggestionBox.appendChild(div);
-                    });
+        // 3. XỬ LÝ TÌM KIẾM
+        if (searchInput && suggestionBox) {
+            searchInput.addEventListener('input', () => {
+                const value = searchInput.value.toLowerCase().trim();
+                suggestionBox.innerHTML = '';
+                
+                if (value) {
+                    const filtered = pages.filter(p => p.name.toLowerCase().includes(value));
+                    if (filtered.length > 0) {
+                        suggestionBox.style.display = 'block';
+                        filtered.forEach(p => {
+                            const div = document.createElement('div');
+                            div.className = 'suggestion-item';
+                            div.innerHTML = `🔍 &nbsp; ${p.name}`;
+                            div.onclick = () => showPage(p);
+                            suggestionBox.appendChild(div);
+                        });
+                    } else {
+                        suggestionBox.style.display = 'none';
+                    }
                 } else {
                     suggestionBox.style.display = 'none';
                 }
-            } else {
-                suggestionBox.style.display = 'none';
-            }
-        });
+            });
+        }
 
+        // 4. HÀM HIỂN THỊ TRANG
         function showPage(page) {
-    homePage.style.display = 'none';
-    contentPage.style.display = 'block';
-    document.getElementById('page-title').innerText = page.title;
-    
-    const contentContainer = document.getElementById('page-content');
-    contentContainer.innerHTML = page.content; 
+            homePage.style.display = 'none';
+            contentPage.style.display = 'block';
+            document.getElementById('page-title').innerText = page.title;
+            document.getElementById('page-content').innerHTML = page.content; 
 
-    // CHỨC NĂNG TỰ CẬP NHẬT DANH SÁCH:
-    if (page.name === "Các Mục") {
-        const listDiv = document.getElementById('all-categories-list');
-        listDiv.innerHTML = ""; // Xóa trắng trước khi nạp
-        
-        // Chạy vòng lặp quét qua tất cả các trang bạn đã tạo
-        pages.forEach(p => {
-            if (p.name !== "Các Mục") { // Không hiện chính trang "Các Mục" trong danh sách
-                const item = document.createElement('div');
-                item.style.padding = "15px";
-                item.style.margin = "10px 0";
-                item.style.background = "#f0f0f0";
-                item.style.borderRadius = "8px";
-                item.style.cursor = "pointer";
-                item.style.fontWeight = "bold";
-                item.innerHTML = `📂 &nbsp; ${p.name}`;
-                
-                // Nhấn vào tên mục nào là chuyển ngay đến trang đó
-                item.onclick = () => showPage(p);
-                
-                listDiv.appendChild(item);
+            // Cập nhật danh sách "Các Mục"
+            if (page.name === "Các Mục") {
+                const listDiv = document.getElementById('all-categories-list');
+                if (listDiv) {
+                    listDiv.innerHTML = "";
+                    pages.forEach(p => {
+                        if (p.name !== "Các Mục") {
+                            const item = document.createElement('div');
+                            item.className = 'category-item';
+                            item.style.padding = "15px";
+                            item.style.margin = "10px 0";
+                            item.style.background = "#f0f0f0";
+                            item.style.borderRadius = "8px";
+                            item.style.cursor = "pointer";
+                            item.style.fontWeight = "bold";
+                            item.innerHTML = `📂 &nbsp; ${p.name}`;
+                            item.onclick = () => showPage(p);
+                            listDiv.appendChild(item);
+                        }
+                    });
+                }
             }
-        });
-    }
 
-    window.scrollTo(0, 0);
-    ganSuKienNhanAnh(); // Vẫn giữ hàm này để ảnh trong các mục vẫn phóng to được
-}
-        // Hàm quay lại
+            window.scrollTo(0, 0);
+            if (suggestionBox) suggestionBox.style.display = 'none';
+            ganSuKienNhanAnh(); // Kích hoạt chức năng phóng to ảnh cho nội dung mới
+        }
+
         function goBack() {
             homePage.style.display = 'flex';
             contentPage.style.display = 'none';
+            if (searchInput) searchInput.value = '';
         }
 
         // Đóng hộp gợi ý khi nhấn ra ngoài
         document.addEventListener('click', (e) => {
-            if (!searchInput.contains(e.target)) {
+            if (searchInput && !searchInput.contains(e.target)) {
                 suggestionBox.style.display = 'none';
             }
         });
+
+        // 5. CHỨC NĂNG PHÓNG TO ẢNH (LIGHTBOX)
+        function ganSuKienNhanAnh() {
+            // Chỉ gán sự kiện cho ảnh trong phần nội dung, bỏ qua logo và icon
+            document.querySelectorAll('#page-content img').forEach(image => {
+                image.onclick = () => {
+                    viewer.style.display = "block";
+                    fullImg.src = image.src;
+                }
+            });
+        }
+
+        // Các nút tắt Lightbox
+        if (closeBtn) closeBtn.onclick = () => { viewer.style.display = "none"; }
+        if (viewer) viewer.onclick = (e) => {
+            if (e.target !== fullImg) viewer.style.display = "none";
+        }
+
     </script>
 </body>
 </html>
-

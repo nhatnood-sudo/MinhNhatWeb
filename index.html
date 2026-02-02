@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google của Nhật</title>
     <style>
-
+#all-categories-list div:hover {
+    background-color: #e0e0e0 !important;
+    transform: scale(1.02);
+    transition: 0.2s;
+    color: #007bff;
+}
 img {
     transition: all 0.3s ease; /* Giúp hiệu ứng mượt mà hơn */
     cursor: pointer;
@@ -1049,7 +1054,11 @@ Kênh phụ: Kênh kỷ niệm của tôi:<br>
 `
             },
 
-
+{
+        name: "Các Mục",
+        title: "Tổng hợp tất cả các mục có trong trang web của Nhật",
+        content: "<div id='all-categories-list'></div>"
+    },
 
 
 
@@ -1092,11 +1101,37 @@ Kênh phụ: Kênh kỷ niệm của tôi:<br>
     homePage.style.display = 'none';
     contentPage.style.display = 'block';
     document.getElementById('page-title').innerText = page.title;
+    
+    const contentContainer = document.getElementById('page-content');
+    contentContainer.innerHTML = page.content; 
 
-    // ĐỔI DÒNG NÀY: Từ innerText thành innerHTML
-    document.getElementById('page-content').innerHTML = page.content; 
+    // CHỨC NĂNG TỰ CẬP NHẬT DANH SÁCH:
+    if (page.name === "Các Mục") {
+        const listDiv = document.getElementById('all-categories-list');
+        listDiv.innerHTML = ""; // Xóa trắng trước khi nạp
+        
+        // Chạy vòng lặp quét qua tất cả các trang bạn đã tạo
+        pages.forEach(p => {
+            if (p.name !== "Các Mục") { // Không hiện chính trang "Các Mục" trong danh sách
+                const item = document.createElement('div');
+                item.style.padding = "15px";
+                item.style.margin = "10px 0";
+                item.style.background = "#f0f0f0";
+                item.style.borderRadius = "8px";
+                item.style.cursor = "pointer";
+                item.style.fontWeight = "bold";
+                item.innerHTML = `📂 &nbsp; ${p.name}`;
+                
+                // Nhấn vào tên mục nào là chuyển ngay đến trang đó
+                item.onclick = () => showPage(p);
+                
+                listDiv.appendChild(item);
+            }
+        });
+    }
 
     window.scrollTo(0, 0);
+    ganSuKienNhanAnh(); // Vẫn giữ hàm này để ảnh trong các mục vẫn phóng to được
 }
         // Hàm quay lại
         function goBack() {
